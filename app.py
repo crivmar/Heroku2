@@ -16,18 +16,19 @@ with open ('./MSX.json') as f:
 def inicio():
     return render_template("index.html")
 
-@app.route ('/juegos',methods=["GET","POST"])
+@app.route ('/juegos',methods=["GET")
 def juegos():
-    if request.method=="GET":
-        return render_template("juegos.html")
-    else:
-        for i in documento: 
-            nombre=i.get("nombre")
-            distribuidor=i.get("distribuidor")
-            anno=i.get("año")
-            categoria=i.get("categoria")
+    return render_template("juegos.html")
 
-        return render_template("detalle.html", )
+
+@app.route ('/juegos/<identificador>', methods=["GET"])
+def detalle():
+    for i in documento: 
+        nombre=i.get("nombre")
+        distribuidor=i.get("distribuidor")
+        anno=i.get("año")
+        categoria=i.get("categoria")
+    return render_template("detalle.html", nombre=nombre, distribuidor=distribuidor, anno=anno, categoria=categoria)
 
 @app.route ('/listajuegos', methods=["POST"])
 def lista():
