@@ -20,8 +20,14 @@ def inicio():
 def juegos():
     if request.method=="GET":
         return render_template("juegos.html")
-    else:   
-        return render_template("detalle.html", documento=documento)
+    else:
+        for i in documento: 
+            nombre=i.get("nombre")
+            distribuidor=i.get("distribuidor")
+            anno=i.get("año")
+            categoria=i.get("categoria")
+
+        return render_template("detalle.html", )
 
 @app.route ('/listajuegos', methods=["POST"])
 def lista():
