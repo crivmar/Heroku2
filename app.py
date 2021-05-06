@@ -16,7 +16,7 @@ with open ('./MSX.json') as f:
 def inicio():
     return render_template("index.html")
 
-@app.route ('/juegos',methods=["GET")
+@app.route ('/juegos',methods=["GET"])
 def juegos():
     return render_template("juegos.html")
 
