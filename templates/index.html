@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %} Biblioteca MSX {% endblock %}
-{% block header %}Página principal{% endblock %}
+{% block header %}Página principal
+<p><a href="#" class="image"></a><img src="{{url_for('static', filename='images/msxlogo.png')}}"/></a></p>
+{% endblock %}
 {% block content %}
 
     <h2>Aquí hay un mundo de entretenimiento.</h2>
