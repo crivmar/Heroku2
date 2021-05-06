@@ -38,7 +38,7 @@ def detalle(identificador):
 def lista():
     cadena= request.form.get("nombre_control")
     for i in documento:
-        if i.get("nombre").startswith(cadena):
+        if str(i.get("nombre")).startswith(cadena):
             conf=True
             nombre=i.get('nombre')
             desarrollador=i.get('desarrollador')
