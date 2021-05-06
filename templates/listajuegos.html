@@ -15,9 +15,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{{titulos}}</td>
-                </tr>    
+                {% for i in documento -%}
+                    <tr>
+                        <td>{{loop.index}} - {{i.nombre}}</td>
+                    </tr>
+                {% endfor -%}        
             </tbody>    
         </table>
     </p>
