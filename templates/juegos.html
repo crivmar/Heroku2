@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %} Juegos MSX {% endblock %}
-{% block header %}Pon una cadena y ¡a buscar!
+{% block header %}
 <p></p><a href="/juegos"><img src="{{url_for('static', filename='images/msxlogo.png')}}"/></a></p>
 {% endblock %}
 
 {% block content %}
 
     <h2>BUSCADOR</h2>
+    <p>Pon el nombre de un juego o parte de su nombre. Si no ingresas nada, verás la lista completa de juegos.</p>
     <p>
     <form action="/listajuegos" method="post">
         <label for="message">Búsqueda</label>
