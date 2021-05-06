@@ -12,7 +12,9 @@ with open ('./MSX.json') as f:
 
 ## PROGRAMA PRINCIPAL ##
 
-
+@app.route ('/', methods=["GET"])
+def inicio():
+    return render_template("index.html")
 
 
 
