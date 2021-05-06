@@ -1,18 +1,15 @@
 {% extends "base.html" %}
 {% block title %} Biblioteca MSX {% endblock %}
-{% block header %}Detalle
+{% block header %}<h1>{{nombre}}</h1>
 <p></p><a href="/juegos"><img src="{{url_for('static', filename='images/msxlogo.png')}}"/></a></p>
 {% endblock %}
 
 {% block content %}
 
     <h2>Lista de juegos</h2>
-    <p>
-            Nombre: {{nombre}}
-            Distribuidor: {{distribuidor}}     
-            Año de lanzamiento: {{anno}}
-            Categoria: {{categoria}} 
-
-    </p>
+        <p><strong>Nombre:</strong> {{nombre}}</p>
+        <p><strong>Distribuidor:</strong> {{distribuidor}}</p>     
+        <p><strong>Año de lanzamiento:</strong> {{anno}}</p>
+        <p><strong>Categoria:</strong> {{categoria}}</p>
 
 {% endblock %}
