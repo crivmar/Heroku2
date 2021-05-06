@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} Juegos MSX {% endblock %}
-{% block header %}Buscador de juegos. Pon una cadena y ¡a buscar!
+{% block header %}Pon una cadena y ¡a buscar!
 <p></p><a href="/juegos"><img src="{{url_for('static', filename='images/msxlogo.png')}}"/></a></p>
 {% endblock %}
 
@@ -8,9 +8,10 @@
 
     <h2>BUSCADOR</h2>
     <p>
-    <ul>
-      
-    </ul>        
+    <form action="/juegos" method="post">
+        <label for="message">Búsqueda</label>
+        <input type="text" value="{{cadena}}"/>
+    </form>      
     </p>
 
 {% endblock %}
