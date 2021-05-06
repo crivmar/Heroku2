@@ -18,7 +18,7 @@ def inicio():
 
 @app.route ('/juegos',methods=["GET"])
 def juegos():
-    return render_template("juegos.html",titulo=titulo)
+    return render_template("juegos.html")
 
 
 
