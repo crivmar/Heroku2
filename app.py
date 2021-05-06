@@ -38,8 +38,12 @@ def detalle(identificador):
 def lista():
     cadena= request.form.get("nombre_control")
     if i.get("nombre").startswith(cadena):
-      for i in documento:
-        return render_template("listajuegos.html", documento=documento, cadena=cadena)
+        for i in documento:
+            conf=True
+            nombre=i.get('nombre')
+            desarrollador=i.get('desarrollador')
+            identificador=i.get('id')
+            return render_template("listajuegos.html", documento=documento, cadena=cadena, nombre=nombre, desarrollador=desarrollador, identificador=identificador)
     else:
         return render_template("listajuegos.html", documento=documento)
 
