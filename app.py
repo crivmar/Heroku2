@@ -20,6 +20,13 @@ def inicio():
 def juegos():
     return render_template("juegos.html")
 
+@app.route ('/listajuegos', methods=["POST"])
+def lista():
+    if cadena=" "
+        for i in documento:
+            titulos=i.get("nombre")
+
+return render_template("listajuegos.html", cadena=cadena, titulos=titulos)
 
 
 
