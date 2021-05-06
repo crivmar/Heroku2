@@ -16,6 +16,12 @@ with open ('./MSX.json') as f:
 def inicio():
     return render_template("index.html")
 
+@app.route ('/juegos',methods=["GET"])
+def juegos():
+    for i in documento:
+        titulo=i.get("nombre")
+    return render_template("juego.html",titulo=titulo)
+
 
 
 
