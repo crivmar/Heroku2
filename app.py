@@ -20,7 +20,7 @@ def inicio():
 def juegos():
     for i in documento:
         titulo=i.get("nombre")
-    return render_template("juego.html",titulo=titulo)
+    return render_template("juegos.html",titulo=titulo)
 
 
 
