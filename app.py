@@ -36,8 +36,12 @@ def detalle(identificador):
 
 @app.route ('/listajuegos', methods=["POST"])
 def lista():
-    return render_template("listajuegos.html", documento=documento)
-
+    cadena= request.form.get("nombre_control")
+    for i in documento:
+        if i.get("nombre").startswith(cadena):
+            return render_template("listajuegos.html", documento=documento, cadena=cadena)
+        else:
+            return render_template("listajuegos.html", documento=documento)
 
 
 port=os.environ["PORT"]
