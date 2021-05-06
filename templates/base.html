@@ -9,14 +9,14 @@
 		<title>{% block title %}{% endblock %}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{url_for('static', filename='static/assets/css/main.css')}}" />
+		<link rel="stylesheet" href="{{url_for('static', filename='assets/css/main.css')}}" />
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="{{url_for('static', filename='static/images/msxlogo.png')}}"alt=""></a>
+					<a href="{{url_for('static', filename='images/msxlogo.png')}}"alt=""></a>
 					<h1><strong>{% block header %}</strong>
 					{% endblock %}</h1>
 				</div>
@@ -43,12 +43,12 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="{{url_for('static', filename='static/assets/js/jquery.min.js')}}"></script>
-			<script src="{{url_for('static', filename='static/assets/js/jquery.poptrox.min.js')}}"></script>
-			<script src="{{url_for('static', filename='static/assets/js/browser.min.js')}}"></script>
-			<script src="{{url_for('static', filename='static/assets/js/breakpoints.min.js')}}"></script>
-			<script src="{{url_for('static', filename='static/assets/js/util.js')}}"></script>
-			<script src="{{url_for('static', filename='static/assets/js/main.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/jquery.poptrox.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='assets/js/main.js')}}"></script>
 
 	</body>
 </html>
