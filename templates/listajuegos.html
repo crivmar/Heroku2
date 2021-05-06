@@ -12,12 +12,16 @@
             <thead>
                 <tr>
                     <th>Nombre</th>
+                    <th>Desarrollador</th>
+                    <th>Detalle</th>
                 </tr>
             </thead>
             <tbody>
                 {% for i in documento -%}
                     <tr>
                         <td>{{loop.index}} - {{i.nombre}}</td>
+                        <td>{{i.desarrollador}}</td>
+                        <td><a href="#">Enlace</td>
                     </tr>
                 {% endfor -%}        
             </tbody>    
