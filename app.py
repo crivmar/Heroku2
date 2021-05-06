@@ -18,8 +18,6 @@ def inicio():
 
 @app.route ('/juegos',methods=["GET"])
 def juegos():
-    for i in documento:
-        titulo=i.get("nombre")
     return render_template("juegos.html",titulo=titulo)
 
 
