@@ -12,14 +12,14 @@
     <form action="/juegos" method="post">
         <label for="message">Búsqueda</label>
         <input type="text" name="nombre_control" value="{{cadena}}"/>
-        <input type="submit" value="Buscar" />
-        <p>
-            <select name="categoria">
-                {% for i in documento -%}
-                    <option>{{i.categoria}}</option>
-                {% endfor -%}    
-            </select>    
-        </p>
+
+        <select name="categoria">
+            {% for i in documento -%}
+                <option>{{i.categoria}}</option>
+            {% endfor -%}    
+        </select>
+    
+        <input type="submit" value="Buscar" /> 
     </form>      
     </p>
     {% if post %}
