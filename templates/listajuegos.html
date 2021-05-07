@@ -17,13 +17,23 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in documento -%}
-                    <tr>
-                        <td>{{loop.index}} - {{i.nombre}}</td>
-                        <td>{{i.desarrollador}}</td>
-                        <td><a href='/juegos/{{i.id}}'>Enlace</td>
-                    </tr>
-                {% endfor -%}       
+                {% if conf %}
+                    {% for i in listado -%}
+                        <tr>
+                            <td>{{loop.index}} - {{i.nombre}}</td>
+                            <td>{{i.desarrollador}}</td>
+                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                        </tr>
+                    {% endfor -%}
+                {% else %}
+                    {% for i in documento -%}
+                        <tr>
+                            <td>{{loop.index}} - {{i.nombre}}</td>
+                            <td>{{i.desarrollador}}</td>
+                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                        </tr>
+                    {% endfor -%}
+                {% endif %}           
             </tbody>    
         </table>
     </p>
