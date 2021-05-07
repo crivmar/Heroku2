@@ -37,7 +37,7 @@ def detalle(identificador):
 @app.route ('/listajuegos', methods=["POST"])
 def lista():
     listado=[]
-    cadena= request.form.get("nombre_control")
+    cadena= request.form.get("nombre_control").capitalize()
     if cadena =="":
         return render_template("listajuegos.html", documento=documento)
     else:
