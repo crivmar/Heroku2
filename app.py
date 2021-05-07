@@ -18,18 +18,18 @@ def inicio():
 
 @app.route ('/juegos',methods=["GET","POST"])
 def juegos():
-    if request.method=="GET":
-        categoria=[]
-        for i in documento:
+    categoria=[]
+    for i in documento:
             if i.get('categoria') not in categoria:
-                categoria.append(i.get('categoria'))       
+                categoria.append(i.get('categoria')) 
+    if request.method=="GET":      
         return render_template("juegos.html", categoria=categoria)
     else:
         post=True
         listado=[]
         cadena= request.form.get("nombre_control").capitalize()
         if cadena =="":
-            return render_template("juegos.html", documento=documento, post=post, cadena=cadena)
+            return render_template("juegos.html", documento=documento, post=post, cadena=cadena, categoria=categoria)
         else:
             var=True
             for i in documento:
@@ -43,7 +43,7 @@ def juegos():
                     var=False
             if var:
                 abort(404)
-        return render_template("juegos.html", listado=listado, conf=conf, post=post, cadena=cadena)
+        return render_template("juegos.html", listado=listado, conf=conf, post=post, cadena=cadena, categoria=categoria)
 
 @app.route ('/juegos/<identificador>', methods=["GET"])
 def detalle(identificador):
