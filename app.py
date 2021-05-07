@@ -22,6 +22,7 @@ def juegos():
     for i in documento:
             if i.get('categoria') not in categoria:
                 categoria.append(i.get('categoria')) 
+    categoria.sort()
     if request.method=="GET":      
         return render_template("juegos.html", categoria=categoria)
     else:
