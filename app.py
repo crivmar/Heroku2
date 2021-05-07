@@ -37,12 +37,12 @@ def detalle(identificador):
 @app.route ('/listajuegos', methods=["POST"])
 def lista():
     listado=[]
-    diccionario={}
     cadena= request.form.get("nombre_control")
     if cadena =="":
         return render_template("listajuegos.html", documento=documento)
     else:
         for i in documento:
+            diccionario={}
             if str(i.get('nombre')).startswith(cadena):
                 conf=True
                 diccionario['nombre']=i.get('nombre')
