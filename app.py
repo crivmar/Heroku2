@@ -23,15 +23,16 @@ def juegos():
 
 @app.route ('/juegos/<identificador>', methods=["GET"])
 def detalle(identificador):
+    var=True
     for i in documento:
         if identificador == str(i.get('id')):
-            try: 
-                nombre=i.get('nombre')
-                distribuidor=i.get('distribuidor')
-                anno=i.get('año')
-                categoria=i.get('categoria')
-            except:
-                abort(404)
+            nombre=i.get('nombre')
+            distribuidor=i.get('distribuidor')
+            anno=i.get('año')
+            categoria=i.get('categoria')
+            var=False
+    if var:
+        abort(404)
     return render_template("detalle.html", nombre=nombre, distribuidor=distribuidor, anno=anno, categoria=categoria)
 
 @app.route ('/listajuegos', methods=["POST"])
