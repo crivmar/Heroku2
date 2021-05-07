@@ -29,13 +29,14 @@ def juegos():
         post=True
         listado=[]
         cadena= request.form.get("nombre_control").capitalize()
+        cat= request.form.get("categoria")
         if cadena =="":
             return render_template("juegos.html", documento=documento, post=post, cadena=cadena, categoria=categoria)
         else:
             var=True
             for i in documento:
                 diccionario={}
-                if str(i.get('nombre')).startswith(cadena):
+                if str(i.get('nombre')).startswith(cadena) and i.get('categoria') == cat:
                     conf=True
                     diccionario['nombre']=i.get('nombre')
                     diccionario['desarrollador']=i.get('desarrollador')
