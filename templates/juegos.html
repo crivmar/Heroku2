@@ -9,11 +9,43 @@
     <h2>BUSCADOR</h2>
     <p>Pon el nombre de un juego o parte de su nombre. Si no ingresas nada, verás la lista completa de juegos.</p>
     <p>
-    <form action="/listajuegos" method="post">
+    <form action="/juegos" method="post">
         <label for="message">Búsqueda</label>
         <input type="text" name="nombre_control" value="{{cadena}}"/>
         <input type="submit" value="Buscar" />
     </form>      
+    </p>
+
+    <h2>Lista de juegos</h2>
+    <p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Desarrollador</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if conf %}
+                    {% for i in listado -%}
+                        <tr>
+                            <td>{{loop.index}} - {{i.nombre}}</td>
+                            <td>{{i.desarrollador}}</td>
+                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                        </tr>
+                    {% endfor -%}
+                {% else %}
+                    {% for i in documento -%}
+                        <tr>
+                            <td>{{loop.index}} - {{i.nombre}}</td>
+                            <td>{{i.desarrollador}}</td>
+                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                        </tr>
+                    {% endfor -%}
+                {% endif %}           
+            </tbody>    
+        </table>
     </p>
 
 {% endblock %}
