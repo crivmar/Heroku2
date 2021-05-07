@@ -19,7 +19,7 @@ def inicio():
 @app.route ('/juegos',methods=["GET","POST"])
 def juegos():
     if request.method=="GET":
-        return render_template("juegos.html")
+        return render_template("juegos.html", documento=documento)
     else:
         post=True
         listado=[]
