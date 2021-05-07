@@ -15,37 +15,38 @@
         <input type="submit" value="Buscar" />
     </form>      
     </p>
-
-    <h2>Lista de juegos</h2>
-    <p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Desarrollador</th>
-                    <th>Detalle</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if conf %}
-                    {% for i in listado -%}
-                        <tr>
-                            <td>{{loop.index}} - {{i.nombre}}</td>
-                            <td>{{i.desarrollador}}</td>
-                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
-                        </tr>
-                    {% endfor -%}
-                {% else %}
-                    {% for i in documento -%}
-                        <tr>
-                            <td>{{loop.index}} - {{i.nombre}}</td>
-                            <td>{{i.desarrollador}}</td>
-                            <td><a href='/juegos/{{i.id}}'>Enlace</td>
-                        </tr>
-                    {% endfor -%}
-                {% endif %}           
-            </tbody>    
-        </table>
+    {% if post %}
+        <h2>Lista de juegos</h2>
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Desarrollador</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if conf %}
+                        {% for i in listado -%}
+                            <tr>
+                                <td>{{loop.index}} - {{i.nombre}}</td>
+                                <td>{{i.desarrollador}}</td>
+                                <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                            </tr>
+                        {% endfor -%}
+                    {% else %}
+                        {% for i in documento -%}
+                            <tr>
+                                <td>{{loop.index}} - {{i.nombre}}</td>
+                                <td>{{i.desarrollador}}</td>
+                                <td><a href='/juegos/{{i.id}}'>Enlace</td>
+                            </tr>
+                        {% endfor -%}
+                    {% endif %}           
+                </tbody>    
+            </table>
+    {% endif %}        
     </p>
 
 {% endblock %}
