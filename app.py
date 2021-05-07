@@ -42,6 +42,7 @@ def lista():
     if cadena =="":
         return render_template("listajuegos.html", documento=documento)
     else:
+        var=True
         for i in documento:
             diccionario={}
             if str(i.get('nombre')).startswith(cadena):
@@ -50,6 +51,9 @@ def lista():
                 diccionario['desarrollador']=i.get('desarrollador')
                 diccionario['id']=i.get('id')
                 listado.append(diccionario)
+                var=False
+        if var:
+            abort(404)
     return render_template("listajuegos.html", listado=listado, conf=conf)
 
 
