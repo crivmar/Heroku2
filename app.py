@@ -21,7 +21,24 @@ def juegos():
     if request.method=="GET":
         return render_template("juegos.html")
     else:
-
+        listado=[]
+        cadena= request.form.get("nombre_control").capitalize()
+        if cadena =="":
+            return render_template("juegos.html", documento=documento)
+        else:
+            var=True
+            for i in documento:
+                diccionario={}
+                if str(i.get('nombre')).startswith(cadena):
+                    conf=True
+                    diccionario['nombre']=i.get('nombre')
+                    diccionario['desarrollador']=i.get('desarrollador')
+                    diccionario['id']=i.get('id')
+                    listado.append(diccionario)
+                    var=False
+            if var:
+                abort(404)
+        return render_template("juegos.html", listado=listado, conf=conf)
 
 @app.route ('/juegos/<identificador>', methods=["GET"])
 def detalle(identificador):
@@ -37,26 +54,26 @@ def detalle(identificador):
         abort(404)
     return render_template("detalle.html", nombre=nombre, distribuidor=distribuidor, anno=anno, categoria=categoria)
 
-@app.route ('/listajuegos', methods=["POST"])
-def lista():
-    listado=[]
-    cadena= request.form.get("nombre_control").capitalize()
-    if cadena =="":
-        return render_template("listajuegos.html", documento=documento)
-    else:
-        var=True
-        for i in documento:
-            diccionario={}
-            if str(i.get('nombre')).startswith(cadena):
-                conf=True
-                diccionario['nombre']=i.get('nombre')
-                diccionario['desarrollador']=i.get('desarrollador')
-                diccionario['id']=i.get('id')
-                listado.append(diccionario)
-                var=False
-        if var:
-            abort(404)
-    return render_template("listajuegos.html", listado=listado, conf=conf)
+# @app.route ('/listajuegos', methods=["POST"])
+# def lista():
+#     listado=[]
+#     cadena= request.form.get("nombre_control").capitalize()
+#     if cadena =="":
+#         return render_template("listajuegos.html", documento=documento)
+#     else:
+#         var=True
+#         for i in documento:
+#             diccionario={}
+#             if str(i.get('nombre')).startswith(cadena):
+#                 conf=True
+#                 diccionario['nombre']=i.get('nombre')
+#                 diccionario['desarrollador']=i.get('desarrollador')
+#                 diccionario['id']=i.get('id')
+#                 listado.append(diccionario)
+#                 var=False
+#         if var:
+#             abort(404)
+#     return render_template("listajuegos.html", listado=listado, conf=conf)
 
 
 port=os.environ["PORT"]
