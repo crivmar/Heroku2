@@ -25,7 +25,7 @@ def juegos():
         listado=[]
         cadena= request.form.get("nombre_control").capitalize()
         if cadena =="":
-            return render_template("juegos.html", documento=documento, post=post)
+            return render_template("juegos.html", documento=documento, post=post, cadena=cadena)
         else:
             var=True
             for i in documento:
@@ -39,7 +39,7 @@ def juegos():
                     var=False
             if var:
                 abort(404)
-        return render_template("juegos.html", listado=listado, conf=conf, post=post)
+        return render_template("juegos.html", listado=listado, conf=conf, post=post, cadena=cadena)
 
 @app.route ('/juegos/<identificador>', methods=["GET"])
 def detalle(identificador):
