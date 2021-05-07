@@ -19,7 +19,11 @@ def inicio():
 @app.route ('/juegos',methods=["GET","POST"])
 def juegos():
     if request.method=="GET":
-        return render_template("juegos.html", documento=documento)
+        categoria=[]
+        for i in documento:
+            if i.get('categoria') not in categoria:
+                categoria.append(i.get('categoria'))       
+        return render_template("juegos.html", categoria=categoria)
     else:
         post=True
         listado=[]
