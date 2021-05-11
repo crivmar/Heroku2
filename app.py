@@ -30,22 +30,22 @@ def juegos():
         listado=[]
         cadena= request.form.get("nombre_control").capitalize()
         cat= request.form.get("categoria")
-        if cadena =="":
-            return render_template("juegos.html", documento=documento, post=post, cadena=cadena, categoria=categoria)
-        else:
-            var=True
-            for i in documento:
-                diccionario={}
-                if str(i.get('nombre')).startswith(cadena) and i.get('categoria') == cat:
-                    conf=True
-                    diccionario['nombre']=i.get('nombre')
-                    diccionario['desarrollador']=i.get('desarrollador')
-                    diccionario['id']=i.get('id')
-                    listado.append(diccionario)
-                    var=False
-            if var:
-                abort(404)
-        return render_template("juegos.html", listado=listado, conf=conf, post=post, cadena=cadena, categoria=categoria)
+        # if cadena =="":
+        #     return render_template("juegos.html", documento=documento, post=post, cadena=cadena, categoria=categoria)
+        # else:
+        var=True
+        for i in documento:
+            diccionario={}
+            if str(i.get('nombre')).startswith(cadena) and i.get('categoria') == cat:
+                conf=True
+                diccionario['nombre']=i.get('nombre')
+                diccionario['desarrollador']=i.get('desarrollador')
+                diccionario['id']=i.get('id')
+                listado.append(diccionario)
+                var=False
+        if var:
+            abort(404)
+    return render_template("juegos.html", listado=listado, conf=conf, post=post, cadena=cadena, categoria=categoria)
 
 @app.route ('/juegos/<identificador>', methods=["GET"])
 def detalle(identificador):
