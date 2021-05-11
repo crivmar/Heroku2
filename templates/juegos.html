@@ -7,7 +7,9 @@
 {% block content %}
 
     <h2>BUSCADOR</h2>
-    <p>Pon el nombre de un juego o parte de su nombre. Si no ingresas nada, verás la lista completa de juegos.</p>
+    <p>Pon el nombre de un juego o parte de su nombre y selecciona una categoría, si el juego no existe
+        saltará un error 404.
+    </p>
     <p>
     <form action="/juegos" method="post">
         <label for="message">Búsqueda</label>
